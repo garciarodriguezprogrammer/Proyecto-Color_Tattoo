@@ -152,7 +152,7 @@ http://localhost:3000
 
             DELETE /api/appointments/deleteAppointment/3
 
-     - CLIENT APPOINTMENT
+     -  CLIENT APPOINTMENT
 
             GET /api/appointments/getAppointmentByClient/1
 
