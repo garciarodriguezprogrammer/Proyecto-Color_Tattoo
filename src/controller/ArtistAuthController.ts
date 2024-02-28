@@ -60,7 +60,7 @@ export class ArtistAuthController{
             }  
         }
     }
-    //Metodo  para  loguear  un artista
+    //Metodo para loguear un artista
     async artistLogin(req: Request, res: Response): Promise <Response>{
         try {
             const {email, password} = req.body;
