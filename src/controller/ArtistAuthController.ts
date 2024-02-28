@@ -31,7 +31,7 @@ export class ArtistAuthController{
                 rol: rol                
             });
 
-            //Guardar  el  nuevo artista
+            //Guardar el nuevo artista
             const saveUser = await AppDataSource.getRepository(User).save(newUser);
             if (!saveUser){
                 return res.status(500).json({
