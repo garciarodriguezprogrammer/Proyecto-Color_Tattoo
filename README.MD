@@ -26,7 +26,7 @@
 Este proyecto requería una API funcional conectada a una base de datos 
 
 ## Sobre el proyecto
-He decidido crear una API funcional conectada a la base de datos de un estudio de tatuajes. Esta aplicación está orientada al sistema de gestión de citas y perfiles de usuarios de tal estudio; en ella se distinguen dos entidades principales: las citas y los usuarios, los usuarios se dividen en dos roles: clientes y artistas, y en correspondencia con el rol de cada cual, podrán acceder a la información de sus respectivas citas. Las citas podrán ser modificadas y eliminadas. Los usuarios podrán registrarse, loguearse, y acceder a sus datos de perfil. El perfil de los usuarios podrá ser modificado. Además, en la web se podrá acceder a la lista de artistas disponibles para poder elegir con cuál de ellos el cliente desea hacerse el tatuaje.
+He decidido crear una  API funcional conectada a la base de datos de un estudio de tatuajes. Esta aplicación está orientada al sistema de gestión de citas y perfiles de usuarios de tal estudio; en ella se distinguen dos entidades principales: las citas y los usuarios, los usuarios se dividen en dos roles: clientes y artistas, y en correspondencia con el rol de cada cual, podrán acceder a la información de sus respectivas citas. Las citas podrán ser modificadas y eliminadas. Los usuarios podrán registrarse, loguearse, y acceder a sus datos de perfil. El perfil de los usuarios podrá ser modificado. Además, en la web se podrá acceder a la lista de artistas disponibles para poder elegir con cuál de ellos el cliente desea hacerse el tatuaje.
 
 
 ## Stack
