@@ -2,7 +2,7 @@ import { User } from "../../models/user";
 import { AppDataSource } from "../data-source";
 
 const userData = [
-    { userName: "user1", email: "user1@example.com", password: "password1", rol: "admin" },
+    { userName: "user1", email: "user1@example.com", password: "password1", rol: "user" },
     { userName: "user2", email: "user2@example.com", password: "password2", rol: "user" },    
 ];
 

@@ -7,15 +7,15 @@ AppDataSource.initialize()
         const userRepository = AppDataSource.getRepository(User);
         const appointmentRepository = AppDataSource.getRepository(Appointment);
 
-        const client = await userRepository.findOneBy({ id: 1 }); 
-        const artist = await userRepository.findOneBy({ id: 2 }); 
+        const client = await userRepository.findOneBy({ id: 3 }); 
+        const artist = await userRepository.findOneBy({ id: 1 }); 
 
         if (client && artist) {
             const newAppointment = new Appointment();
             newAppointment.idClient = client;
             newAppointment.idArtist = artist;
             newAppointment.appointmentDate = new Date(2024, 3, 14, 15, 30); 
-            newAppointment.descriptionTattoo = "Ejemplo de descripción de tatuaje";
+            newAppointment.descriptionTattoo = "Tatuaje verde con manchas rojas";
 
             await appointmentRepository.save(newAppointment);
             console.log("Seeder de citas ejecutado.");

@@ -5,13 +5,13 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 const secretKey = process.env.JWT_SECRET_KEY || "123456789";
-//Clase  que  se  encarga  de la autenticacion de los administradores.
-export class AdminAuthController{     
-    //Funcion  para  registrar  administradores.
-    async adminRegister(req: Request, res: Response): Promise <void|Response<any>> {   
+//Clase  que  se  encarga  de la autenticacion de los artistas
+export class ArtistAuthController{     
+    //Funcion  para  registrar  artistas
+    async artistRegister(req: Request, res: Response): Promise <void|Response<any>> {   
 
         const {userName, email, password} = req.body;
-        const rol = "admin";
+        const rol = "artist";
         
         try {
 
@@ -31,7 +31,7 @@ export class AdminAuthController{
                 rol: rol                
             });
 
-            //Guardar  el  nuevo  usuario
+            //Guardar  el  nuevo artista
             const saveUser = await AppDataSource.getRepository(User).save(newUser);
             if (!saveUser){
                 return res.status(500).json({
@@ -60,8 +60,8 @@ export class AdminAuthController{
             }  
         }
     }
-    //Metodo  para  loguear  un usuario
-    async adminLogin(req: Request, res: Response): Promise <Response>{
+    //Metodo  para  loguear  un artista
+    async artistLogin(req: Request, res: Response): Promise <Response>{
         try {
             const {email, password} = req.body;
             const user = await AppDataSource.getRepository(User).findOne({
