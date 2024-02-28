@@ -4,7 +4,7 @@ const server = app.listen(port, () => {
     console.log("Server is running in port "+ port);
 });
 
-//Para evitar que  el servidor crashee cuando se reinicia solo 
+//Para evitar que el servidor crashee cuando se reinicia solo 
 process.on('SIGINT', () => {
     console.log('Closing server...');
     server.close(() => {
