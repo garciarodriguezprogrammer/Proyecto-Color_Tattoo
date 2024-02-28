@@ -7,10 +7,10 @@ const usersController = new UsersController();
 
 // router.use(verifyKey);
 //Listar usuarios 
-router.get("/getUsers", verifyKey, isAdmin,usersController.getAll); //YA
+router.get("/getUsers", verifyKey, isAdmin,usersController.getAll); 
 //Obtener perfil de usuarios por id
-router.get("/userId/:id", verifyKey, isAdmin,usersController.getById); //YA
+router.get("/userId/:id", verifyKey, isAdmin,usersController.getById);
 //Modificar el perfil del usuario
-router.patch("/modifyProfile/:id", verifyKey, usersController.modifyProfile); //YA
+router.patch("/modifyProfile/:id", verifyKey, usersController.modifyProfile);
 
 export default router;
