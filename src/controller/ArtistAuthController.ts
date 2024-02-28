@@ -5,7 +5,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 const secretKey = process.env.JWT_SECRET_KEY || "123456789";
-//Clase  que  se  encarga  de la autenticacion de los artistas
+//Clase que se encarga de la autenticacion de los artistas
 export class ArtistAuthController{     
     //Funcion  para  registrar  artistas
     async artistRegister(req: Request, res: Response): Promise <void|Response<any>> {   
