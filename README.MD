@@ -111,7 +111,7 @@ http://localhost:3000
     
     - GET ARTISTS
 
-            GET /api/artists/artists  
+            GET /api/artist/getArtists  
 
     - APPOINTMENT CREATION
 
@@ -159,6 +159,15 @@ http://localhost:3000
      - ARTIST APPOINTMENT
 
             GET /api/appointments/getAppointmentByArtist/2  
+
+     - ADMIN AUTH
+            POST /api/adminAuth/adminRegister
+            POST /api/adminAuth/adminLogin
+
+     - ARTIST AUTH
+            POST /api/artist/artistRegister
+            POST /api/artist/artistLogin
+
  
 
 

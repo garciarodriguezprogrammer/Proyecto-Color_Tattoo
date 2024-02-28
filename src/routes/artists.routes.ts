@@ -8,7 +8,7 @@ const router = express.Router();
 const usersController = new UsersController();
 const artistAuthController = new ArtistAuthController();
 
-router.get("/artists", verifyKey, isAdmin, usersController.getArtists); 
+router.get("/getArtists", verifyKey, isAdmin, usersController.getArtists); 
 router.post("/artistRegister", artistAuthController.artistRegister);
 router.post("/artistLogin", artistAuthController.artistLogin);
 
