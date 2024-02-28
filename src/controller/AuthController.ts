@@ -10,7 +10,8 @@ export class AuthController{
     //Funcion  para  registrar  usuarios
     async register(req: Request, res: Response): Promise <void|Response<any>> {   
 
-        const {userName, email, password, rol} = req.body;
+        const {userName, email, password} = req.body;
+        const rol = "user";
         
         try {
 
