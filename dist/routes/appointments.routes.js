@@ -12,7 +12,7 @@ const appointmentsController = new AppointmentsController_1.AppointmentsControll
 //Crear una cita
 router.post("/createAppointment", authMiddleware_1.default, appointmentsController.createAppointment); //YA
 //Listar citas
-router.get("/getAppointments", adminMiddleware_1.default, authMiddleware_1.default, appointmentsController.getAppointments); //YA
+router.get("/getAppointments", authMiddleware_1.default, adminMiddleware_1.default, appointmentsController.getAppointments); //YA
 //Recuperar citas por su ID 
 router.get("/getAppointmentById/:id", authMiddleware_1.default, appointmentsController.getAppointmentById); //YA
 //Modificar cita por ID

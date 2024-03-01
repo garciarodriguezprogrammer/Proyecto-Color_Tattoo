@@ -11,9 +11,9 @@ const router = express_1.default.Router();
 const usersController = new UsersController_1.UsersController();
 // router.use(verifyKey);
 //Listar usuarios 
-router.get("/getUsers", authMiddleware_1.default, adminMiddleware_1.default, usersController.getAll); //YA
+router.get("/getUsers", authMiddleware_1.default, adminMiddleware_1.default, usersController.getAll);
 //Obtener perfil de usuarios por id
-router.get("/userId/:id", authMiddleware_1.default, adminMiddleware_1.default, usersController.getById); //YA
+router.get("/userId/:id", authMiddleware_1.default, adminMiddleware_1.default, usersController.getById);
 //Modificar el perfil del usuario
-router.patch("/modifyProfile/:id", authMiddleware_1.default, usersController.modifyProfile); //YA
+router.patch("/modifyProfile/:id", authMiddleware_1.default, usersController.modifyProfile);
 exports.default = router;

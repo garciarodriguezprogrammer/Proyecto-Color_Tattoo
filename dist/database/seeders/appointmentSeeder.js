@@ -11,20 +11,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const appointment_1 = require("../../models/appointment");
 const user_1 = require("../../models/user");
-const data_source_1 = require("../data-source"); // Ajusta la ruta según sea necesario.
+const data_source_1 = require("../data-source");
 data_source_1.AppDataSource.initialize()
     .then(() => __awaiter(void 0, void 0, void 0, function* () {
     const userRepository = data_source_1.AppDataSource.getRepository(user_1.User);
     const appointmentRepository = data_source_1.AppDataSource.getRepository(appointment_1.Appointment);
-    // Asumiendo que ya tienes usuarios en tu base de datos.
-    const client = yield userRepository.findOneBy({ id: 1 }); // Asegúrate de que este ID exista.
-    const artist = yield userRepository.findOneBy({ id: 2 }); // Asegúrate de que este ID exista.
+    const client = yield userRepository.findOneBy({ id: 3 });
+    const artist = yield userRepository.findOneBy({ id: 1 });
     if (client && artist) {
         const newAppointment = new appointment_1.Appointment();
         newAppointment.idClient = client;
         newAppointment.idArtist = artist;
-        newAppointment.appointmentDate = new Date(2024, 3, 14, 15, 30); // Ajusta la fecha según sea necesario.
-        newAppointment.descriptionTattoo = "Ejemplo de descripción de tatuaje";
+        newAppointment.appointmentDate = new Date(2024, 3, 14, 15, 30);
+        newAppointment.descriptionTattoo = "Tatuaje verde con manchas rojas";
         yield appointmentRepository.save(newAppointment);
         console.log("Seeder de citas ejecutado.");
     }

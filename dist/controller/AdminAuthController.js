@@ -23,19 +23,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AuthController = void 0;
+exports.AdminAuthController = void 0;
 const user_1 = require("../models/user");
 const data_source_1 = require("../database/data-source");
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const secretKey = process.env.JWT_SECRET_KEY || "123456789";
-//Clase que se encarga de la autenticacion de los usuarios
-class AuthController {
-    //Funcion para registrar usuarios
-    register(req, res) {
+//Clase  que  se  encarga  de la autenticacion de los administradores.
+class AdminAuthController {
+    //Funcion  para  registrar  administradores.
+    adminRegister(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { userName, email, password } = req.body;
-            const rol = "user";
+            const rol = "admin";
             try {
                 const userExists = yield data_source_1.AppDataSource.getRepository(user_1.User).findOneBy({ email });
                 if (userExists) {
@@ -52,7 +52,7 @@ class AuthController {
                     password: hashedPassword,
                     rol: rol
                 });
-                //Guardar el nuevo usuario
+                //Guardar  el  nuevo  usuario
                 const saveUser = yield data_source_1.AppDataSource.getRepository(user_1.User).save(newUser);
                 if (!saveUser) {
                     return res.status(500).json({
@@ -83,8 +83,8 @@ class AuthController {
             }
         });
     }
-    //Metodo para loguear un usuario
-    loginUser(req, res) {
+    //Metodo  para  loguear  un usuario
+    adminLogin(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { email, password } = req.body;
@@ -116,4 +116,4 @@ class AuthController {
         });
     }
 }
-exports.AuthController = AuthController;
+exports.AdminAuthController = AdminAuthController;

@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Appointment = void 0;
 const typeorm_1 = require("typeorm");
-const user_1 = require("./user"); // Asegúrate de que la ruta sea correcta.
+const user_1 = require("./user");
 let Appointment = class Appointment {
 };
 exports.Appointment = Appointment;
@@ -20,15 +20,17 @@ __decorate([
     __metadata("design:type", Number)
 ], Appointment.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(() => user_1.User, { nullable: false }),
-    (0, typeorm_1.JoinColumn)({ name: "idClient" }) // Esto le dice a TypeORM que el nombre de la columna de la clave foránea es "idClient"
+    (0, typeorm_1.ManyToOne)(() => user_1.User, { nullable: false })
+    // Esto le dice a TypeORM que el nombre de la columna de la clave foránea es "idClient"
     ,
+    (0, typeorm_1.JoinColumn)({ name: "idClient" }),
     __metadata("design:type", user_1.User)
 ], Appointment.prototype, "idClient", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(() => user_1.User, { nullable: false }),
-    (0, typeorm_1.JoinColumn)({ name: "idArtist" }) // Esto le dice a TypeORM que el nombre de la columna de la clave foránea es "idArtist"
+    (0, typeorm_1.ManyToOne)(() => user_1.User, { nullable: false })
+    // Esto le dice a TypeORM que el nombre de la columna de la clave foránea es "idArtist"
     ,
+    (0, typeorm_1.JoinColumn)({ name: "idArtist" }),
     __metadata("design:type", user_1.User)
 ], Appointment.prototype, "idArtist", void 0);
 __decorate([

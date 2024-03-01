@@ -113,14 +113,14 @@ class AppointmentsController {
     //Eliminar una cita
     deleteAppointment(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const ID_APPOINTMENT = parseInt(req.params.id);
-            if (isNaN(ID_APPOINTMENT)) {
+            const id = parseInt(req.params.id);
+            if (isNaN(id)) {
                 return res.status(400).json({
                     message: "Id is not valid"
                 });
             }
             try {
-                const result = yield data_source_1.AppDataSource.getRepository(appointment_1.Appointment).delete(ID_APPOINTMENT);
+                const result = yield data_source_1.AppDataSource.getRepository(appointment_1.Appointment).delete(id);
                 if (result.affected === 0) {
                     return res.status(400).json({
                         message: "Appointment not found"
@@ -137,7 +137,7 @@ class AppointmentsController {
             }
         });
     }
-    //Recuperar  citas  de  un  cliente
+    //Recuperar citas de un cliente
     getAppointmentByClient(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
@@ -154,7 +154,7 @@ class AppointmentsController {
             }
         });
     }
-    //Recuperar  citas  de  un  artista
+    //Recuperar citas de un artista
     getAppointmentByArtist(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
