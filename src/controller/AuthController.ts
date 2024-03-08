@@ -38,8 +38,8 @@ export class AuthController{
                     message: "Error saving user"
                 })
             }
-            const {password: _,...userWithoutPass} = saveUser;
-            return res.json(userWithoutPass);
+            //const {password: _,...userWithoutPass} = saveUser;
+            return res.json({message: "Success"});
         }
         catch (error) {
              //Instanciamos la clase error
@@ -68,7 +68,7 @@ export class AuthController{
                 where: {email: email}
             });
 
-            console.log('Desde auth-controller: '+user);
+            
             if (!user){
                 return res.status(401).json({
                     message: "This user doesn't exist"
@@ -77,7 +77,7 @@ export class AuthController{
 
             const isValidPassword = await bcrypt.compare(password, user.password);
             if (!isValidPassword) {
-                return res.status(401).json({
+                return res.json({
                     message: "Your email or password is wrong"
                 });
             

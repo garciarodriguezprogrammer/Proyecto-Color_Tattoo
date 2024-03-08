@@ -121,7 +121,7 @@ http://localhost:3000
             {
                 
                   "appointmentDate": "2024-06-18 10:30:00",
-                  "escriptionTattoo": "Tattoo rosa y verde",
+                  "descriptionTattoo": "Tattoo rosa y verde",
                   "idClient": 4,
                   "idArtist": 5
 
