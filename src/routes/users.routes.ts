@@ -14,5 +14,7 @@ router.get("/userId/:id", verifyKey, usersController.getById);
 router.patch("/modifyProfile/:id", verifyKey, usersController.modifyProfile);
 //Obtener artistas por su ID
 router.get("/getArtistById/:id", verifyKey, usersController.getArtistsById);
+//Eliminar artistas por su ID
+router.get("/deleteUserById/:id", verifyKey, usersController.deleteUserById);
 
 export default router;

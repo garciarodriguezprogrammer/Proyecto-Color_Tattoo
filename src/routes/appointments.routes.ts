@@ -16,7 +16,7 @@ router.get("/getAppointmentById/:id", verifyKey, appointmentsController.getAppoi
 //Modificar cita por ID
 router.patch("/modifyAppointment/:id", verifyKey, appointmentsController.modifyAppointment); //YA
 //Eliminar cita por ID
-router.delete("/deleteAppointment/:id", verifyKey, appointmentsController.deleteAppointment); //YA
+router.delete("/deleteAppointment/:id", verifyKey, isAdmin, appointmentsController.deleteAppointment); //YA
 //Recuperar citas de cliente por el id del cliente
 router.get("/getAppointmentByClient/:id", verifyKey, appointmentsController.getAppointmentByClient); //YA
 //Recuperar citas de artista por el id del artista

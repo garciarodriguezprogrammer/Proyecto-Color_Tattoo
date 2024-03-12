@@ -82,6 +82,17 @@ export class UsersController{
       
    }
 
+   async deleteUserById(req: Request, res: Response){
+      const id = parseInt(req.params.id);
+      const result = await AppDataSource.getRepository(User).delete(id)
+      if (result.affected === 0) {
+         return res.status(404).json({
+            message: "User not found"
+         });
+      }
+      return res.json({message:"User was deleted"});
+   }
+
 }
 
 
