@@ -8,17 +8,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __rest = (this && this.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -59,8 +48,8 @@ class AuthController {
                         message: "Error saving user"
                     });
                 }
-                const { password: _ } = saveUser, userWithoutPass = __rest(saveUser, ["password"]);
-                return res.json(userWithoutPass);
+                //const {password: _,...userWithoutPass} = saveUser;
+                return res.json({ message: "Success" });
             }
             catch (error) {
                 //Instanciamos la clase error
@@ -91,7 +80,6 @@ class AuthController {
                 const user = yield data_source_1.AppDataSource.getRepository(user_1.User).findOne({
                     where: { email: email }
                 });
-                console.log('Desde auth-controller: ' + user);
                 if (!user) {
                     return res.status(401).json({
                         message: "This user doesn't exist"
@@ -99,7 +87,7 @@ class AuthController {
                 }
                 const isValidPassword = yield bcrypt_1.default.compare(password, user.password);
                 if (!isValidPassword) {
-                    return res.status(401).json({
+                    return res.json({
                         message: "Your email or password is wrong"
                     });
                 }

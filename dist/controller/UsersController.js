@@ -54,6 +54,22 @@ class UsersController {
             }
         });
     }
+    //Recuperar artistas by ID
+    getArtistsById(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const artistId = parseInt(req.params.id);
+            const rol = "Artist";
+            const artist = yield data_source_1.AppDataSource.getRepository(user_1.User).find({
+                where: { rol: rol, id: artistId }
+            });
+            if (artist) {
+                return res.json(artist);
+            }
+            else {
+                return res.json({ message: "error recovering artist by id" });
+            }
+        });
+    }
     modifyProfile(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const id = parseInt(req.params.id);

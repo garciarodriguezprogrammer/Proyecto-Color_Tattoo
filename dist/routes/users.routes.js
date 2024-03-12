@@ -13,7 +13,9 @@ const usersController = new UsersController_1.UsersController();
 //Listar usuarios 
 router.get("/getUsers", authMiddleware_1.default, adminMiddleware_1.default, usersController.getAll);
 //Obtener perfil de usuarios por id
-router.get("/userId/:id", authMiddleware_1.default, adminMiddleware_1.default, usersController.getById);
+router.get("/userId/:id", authMiddleware_1.default, usersController.getById);
 //Modificar el perfil del usuario
 router.patch("/modifyProfile/:id", authMiddleware_1.default, usersController.modifyProfile);
+//Obtener artistas por su ID
+router.get("/getArtistById/:id", authMiddleware_1.default, usersController.getArtistsById);
 exports.default = router;

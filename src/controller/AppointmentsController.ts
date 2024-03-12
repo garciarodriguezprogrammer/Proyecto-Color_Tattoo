@@ -136,9 +136,16 @@ export class AppointmentsController {
        
         try {
            const appointments = await AppDataSource.getRepository(Appointment).find({
-            where: {idClient: {id: parseInt(id)}}
+            where: {idClient: {id: parseInt(id)}},
+            relations: ["idClient", "idArtist"]
            })
-           return res.json(appointments);
+           return res.json(appointments.map(appointment => {
+                return{
+                    ...appointment, 
+                    clientName: appointment.idClient.userName,
+                    artistName: appointment.idArtist.userName
+                }
+           }));
         } catch (error) {
             return res.status(500).json({
                 message: "Error getting appointments", error

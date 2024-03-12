@@ -8,8 +8,8 @@ const router = express.Router();
 const usersController = new UsersController();
 const artistAuthController = new ArtistAuthController();
 
-router.get("/getArtists", verifyKey, isAdmin, usersController.getArtists); 
-router.post("/artistRegister", artistAuthController.artistRegister);
+router.get("/getArtists", verifyKey, usersController.getArtists); 
+router.post("/artistRegister", artistAuthController.artistRegister); //Para registrarme como artista
 router.post("/artistLogin", artistAuthController.artistLogin);
 
 export default router;

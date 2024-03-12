@@ -43,6 +43,22 @@ export class UsersController{
          return res.json({message:"error recovering artists"})
       }
    }
+      //Recuperar artistas by ID
+   async getArtistsById(req: Request, res: Response){
+      const artistId = parseInt(req.params.id)
+      const rol = "Artist";
+      console.log("el id del artista es" + artistId)
+      const artist = await AppDataSource.getRepository(User).find({
+         where: {rol: rol, id: artistId}
+      });
+
+      if (artist) {
+         return res.json(artist);
+      }
+      else {
+         return res.json({message:"error recovering artist by id"})
+      }
+   }
 
    async modifyProfile(req: Request, res: Response){
       const id = parseInt(req.params.id);

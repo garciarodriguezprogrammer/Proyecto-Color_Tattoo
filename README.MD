@@ -93,7 +93,7 @@ http://localhost:3000
             GET /api/users/getUsers 
 
 
-    - USER PROFILE 
+    - USER PROFILE BY ID
 
             GET /api/users/userId/1   
 
@@ -226,3 +226,5 @@ Agradezco a mi tutor Aissa, a mis profesores del Bootcamp y a mis compañeros po
 <a href = "mailto:garciarodriguezprof@gmail.com"> Email</a>
 
 </p>
+
+
