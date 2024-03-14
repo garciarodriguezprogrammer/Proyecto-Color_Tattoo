@@ -18,7 +18,7 @@ router.get("/getAppointmentById/:id", authMiddleware_1.default, appointmentsCont
 //Modificar cita por ID
 router.patch("/modifyAppointment/:id", authMiddleware_1.default, appointmentsController.modifyAppointment); //YA
 //Eliminar cita por ID
-router.delete("/deleteAppointment/:id", authMiddleware_1.default, appointmentsController.deleteAppointment); //YA
+router.delete("/deleteAppointment/:id", authMiddleware_1.default, adminMiddleware_1.default, appointmentsController.deleteAppointment); //YA
 //Recuperar citas de cliente por el id del cliente
 router.get("/getAppointmentByClient/:id", authMiddleware_1.default, appointmentsController.getAppointmentByClient); //YA
 //Recuperar citas de artista por el id del artista

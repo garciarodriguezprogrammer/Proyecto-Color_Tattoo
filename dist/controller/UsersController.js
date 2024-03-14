@@ -59,6 +59,7 @@ class UsersController {
         return __awaiter(this, void 0, void 0, function* () {
             const artistId = parseInt(req.params.id);
             const rol = "Artist";
+            console.log("el id del artista es" + artistId);
             const artist = yield data_source_1.AppDataSource.getRepository(user_1.User).find({
                 where: { rol: rol, id: artistId }
             });
@@ -90,6 +91,18 @@ class UsersController {
                     message: "Error updating profile"
                 });
             }
+        });
+    }
+    deleteUserById(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const id = parseInt(req.params.id);
+            const result = yield data_source_1.AppDataSource.getRepository(user_1.User).delete(id);
+            if (result.affected === 0) {
+                return res.status(404).json({
+                    message: "User not found"
+                });
+            }
+            return res.json({ message: "User was deleted" });
         });
     }
 }

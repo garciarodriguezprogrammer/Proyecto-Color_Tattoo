@@ -53,13 +53,15 @@ class AppointmentsController {
     //Recuperar las citas
     getAppointments(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const appointments = yield data_source_1.AppDataSource.getRepository(appointment_1.Appointment).find();
+            const appointments = yield data_source_1.AppDataSource.getRepository(appointment_1.Appointment).find({ relations: ["idClient", "idArtist"] });
             if (!appointments) {
                 return res.status(404).json({
                     message: "Appointments not found"
                 });
             }
-            return res.json(appointments);
+            return res.json(appointments.map(appointment => {
+                return Object.assign(Object.assign({}, appointment), { clientName: appointment.idClient.userName, artistName: appointment.idArtist.userName });
+            }));
         });
     }
     //Recuperar cita por id
@@ -143,9 +145,12 @@ class AppointmentsController {
             const { id } = req.params;
             try {
                 const appointments = yield data_source_1.AppDataSource.getRepository(appointment_1.Appointment).find({
-                    where: { idClient: { id: parseInt(id) } }
+                    where: { idClient: { id: parseInt(id) } },
+                    relations: ["idClient", "idArtist"]
                 });
-                return res.json(appointments);
+                return res.json(appointments.map(appointment => {
+                    return Object.assign(Object.assign({}, appointment), { clientName: appointment.idClient.userName, artistName: appointment.idArtist.userName });
+                }));
             }
             catch (error) {
                 return res.status(500).json({
@@ -160,9 +165,12 @@ class AppointmentsController {
             const { id } = req.params;
             try {
                 const appointments = yield data_source_1.AppDataSource.getRepository(appointment_1.Appointment).find({
-                    where: { idArtist: { id: parseInt(id) } }
+                    where: { idArtist: { id: parseInt(id) } },
+                    relations: ["idClient", "idArtist"]
                 });
-                return res.json(appointments);
+                return res.json(appointments.map(appointment => {
+                    return Object.assign(Object.assign({}, appointment), { clientName: appointment.idClient.userName, artistName: appointment.idArtist.userName });
+                }));
             }
             catch (error) {
                 return res.status(500).json({
